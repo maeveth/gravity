@@ -136,6 +136,6 @@ Returns information on a single device associated with a specific plugin.  Gravi
 
 ### POST /device/{pluginName}/{deviceId}/{command}
 
-Execute a specific command on a device.  Supported commands are reflected in information for each devicea. In some cases no payload may be required for the commanad
+Execute a specific command on a device.  Supported commands are reflected in information for each devicea. In some cases no payload may be required for the command
 
 #### Example: POST /device/powerviewHub/12346/up
