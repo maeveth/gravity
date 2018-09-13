@@ -48,7 +48,7 @@ Displays full information, status, and associated devices for a single plugin. T
     "version": "1",
     "description": "Implements a Gravity interface for Hunter PowerView Hub REST API",
     "numDevices": 1,
-    "updateInterval": 60
+    "updateInterval": 60,
     "devices": [
         {
             "id": "12346",
@@ -56,7 +56,7 @@ Displays full information, status, and associated devices for a single plugin. T
             "typeId": "Duette",
             "position": 0,
             "status": "online",
-            "msg": null
+            "msg": null,
             "updateOverride": 0,
             "lastUpdate": "2018-09-12T18:25:43.511Z",
             "commands": [
