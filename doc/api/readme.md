@@ -47,9 +47,29 @@ Displays full information, status, and associated devices for a single plugin. T
     "msg": null,
     "version": "1",
     "description": "Implements a Gravity interface for Hunter PowerView Hub REST API",
-    "numDevices": 1,
+    "numDevices": 2,
     "updateInterval": 60,
     "devices": [
+        {
+            "id": "A1890CF4D1D11A6C",
+            "name": "My Hub",
+            "typeId": "PowerviewHub Gen2",
+            "position": 0,
+            "status": "online",
+            "msg": null,
+            "updateOverride": 0,
+            "pluginVer": 1,
+            "lastUpdate": "2018-09-12T18:25:43.511Z",
+            "commands": [
+                "discover"
+            ],
+            "outputs": [
+                "name",
+                "typeId",
+                "position",
+                "status"
+            ]
+        },
         {
             "id": "12346",
             "name": "Living Room Shade 1",
@@ -58,6 +78,7 @@ Displays full information, status, and associated devices for a single plugin. T
             "status": "online",
             "msg": null,
             "updateOverride": 0,
+            "pluginVer": 1,
             "lastUpdate": "2018-09-12T18:25:43.511Z",
             "commands": [
                 "open",
@@ -65,9 +86,11 @@ Displays full information, status, and associated devices for a single plugin. T
                 "up",
                 "down",
                 "stop",
-                "incrUp {%d}",
-                "incrUp {%d}",
-                "set {%d}"
+                "incrUp/{%d}",
+                "incrUp/{%d}",
+                "set/{%d}",
+                "update",
+                "calibrate"
             ],
             "outputs": [
                 "name",
@@ -83,3 +106,34 @@ Displays full information, status, and associated devices for a single plugin. T
 ### GET /device/{pluginName}/{deviceId}
 
 Returns information on a single device associated with a specific plugin.  Gravity makes no assumptions on format for device IDs to allow for easier integration with downstream devices.  As a result devices must be addressed by plugin and its own internal device ID. Standard URL compliance applies however.
+
+#### Example: GET /plugins/powerviewHub/A1890CF4D1D11A6C
+
+````json
+{
+    "id": "A1890CF4D1D11A6C",
+    "name": "My Hub",
+    "typeId": "PowerviewHub Gen2",
+    "position": 0,
+    "status": "online",
+    "msg": null,
+    "updateOverride": 0,
+    "pluginVer": 1,
+    "lastUpdate": "2018-09-12T18:25:43.511Z",
+    "commands": [
+        "discover"
+    ],
+    "outputs": [
+        "name",
+        "typeId",
+        "position",
+        "status"
+    ]
+}
+````
+
+### POST /device/{pluginName}/{deviceId}/{command}
+
+Execute a specific command on a device.  Supported commands are reflected in information for each devicea. In some cases no payload may be required for the commanad
+
+#### Example: POST /device/powerviewHub/12346/up
