@@ -61,13 +61,15 @@ Displays full information, status, and associated devices for a single plugin. T
             "pluginVer": 1,
             "lastUpdate": "2018-09-12T18:25:43.511Z",
             "commands": [
-                "discover"
+                "discover",
+                "activateScene/{%s}"
             ],
             "outputs": [
                 "name",
                 "typeId",
-                "position",
-                "status"
+                "status",
+                "shades",
+                "scenes"
             ]
         },
         {
